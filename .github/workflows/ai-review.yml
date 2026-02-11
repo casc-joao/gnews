@@ -17,13 +17,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: AI Reviewer
-        uses: truongnh1992/gemini-ai-code-reviewer@main # Action que orquestra a revisão
+      - name: Gemini Code Reviewer
+        uses: sshnaidm/gemini-code-review-action@v1
         with:
           gemini_api_key: ${{ secrets.AI_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          gemini_model: "gemini-1.5-pro"
-          custom_prompt: |
+          model: "gemini-1.5-pro"
+          prompt: |
             Aja como um Engenheiro de Segurança Sênior (DevSecOps). 
             Analise o DIFF deste Pull Request buscando:
             1. Vulnerabilidades OWASP Top 10 (especialmente SQL Injection e Insecure Deserialization).
