@@ -20,8 +20,8 @@ jobs:
       - name: Gemini Code Reviewer
         uses: sshnaidm/gemini-code-review-action@v1
         with:
-          gemini_api_key: ${{ secrets.AI_API_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          gemini-key: ${{ secrets.AI_API_KEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           model: "gemini-1.5-pro"
           prompt: |
             Aja como um Engenheiro de Segurança Sênior (DevSecOps). 
