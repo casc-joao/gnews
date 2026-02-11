@@ -18,12 +18,11 @@ jobs:
 
       - name: AI Reviewer
         uses: truongnh1992/gemini-ai-code-reviewer@main # Action que orquestra a revisão
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.AI_API_KEY }} # Funciona com Gemini via proxy ou OpenAI nativo
-          LANGUAGE: Portuguese
-          MODEL: gemini-1.5-pro # Ajuste para o modelo configurado
-          PROMPT: |
+        with:
+          gemini_api_key: ${{ secrets.AI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          gemini_model: "gemini-1.5-pro"
+          custom_prompt: |
             Aja como um Engenheiro de Segurança Sênior (DevSecOps). 
             Analise o DIFF deste Pull Request buscando:
             1. Vulnerabilidades OWASP Top 10 (especialmente SQL Injection e Insecure Deserialization).
